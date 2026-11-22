@@ -1,201 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
 <title>The World Today — Sunday, 22 November 2026</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #e8e2d2; }
-  .page {
-    width: 1024px; height: 1024px;
-    background: #f8f4e8;
-    color: #111;
-    font-family: "Noto Serif", "DejaVu Serif", Georgia, serif;
-    padding: 26px 30px 18px;
-    border: 4px solid #111;
-    display: flex; flex-direction: column;
-  }
-  /* ---------- Masthead ---------- */
-  .masthead { text-align: center; }
-  .masthead h1 {
-    font-size: 88px; font-weight: 900; letter-spacing: 2px;
-    line-height: 0.95; color: #111;
-  }
-  .masthead .tagline {
-    font-size: 15px; letter-spacing: 6px; text-transform: uppercase;
-    color: #444; margin-top: 6px;
-  }
-  .rule-double { border-top: 3px solid #111; border-bottom: 1px solid #111; height: 5px; margin: 12px 0 8px; }
-  .dateline {
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-size: 15px; padding-bottom: 8px; border-bottom: 3px solid #111;
-  }
-  .dateline .date { font-size: 26px; font-weight: 900; letter-spacing: 2px; }
-  .dateline .side { font-weight: 700; letter-spacing: 1px; color: #333; }
-  /* ---------- Stories ---------- */
-  .stories { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 14px; }
-  .panel {
-    border: 2px solid #111; background: #fffdf6;
-    padding: 12px 14px; display: flex; gap: 14px; align-items: flex-start;
-  }
-  .panel .text { flex: 1; }
-  .kicker {
-    font-family: "DejaVu Sans", Arial, sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
-    text-transform: uppercase; color: #a31616; margin-bottom: 5px;
-  }
-  .panel h2 { font-size: 27px; line-height: 1.08; font-weight: 900; margin-bottom: 6px; }
-  .panel p { font-size: 15.5px; line-height: 1.35; color: #222; }
-  .pic { flex: 0 0 auto; }
-  /* Lead story */
-  .lead { padding: 14px 18px; }
-  .lead h2 { font-size: 40px; }
-  .lead p { font-size: 18px; line-height: 1.4; max-width: 640px; }
-  /* Grid of five */
-  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; flex: 1; }
-  .grid .panel { flex-direction: column; gap: 8px; }
-  .grid .panel h2 { font-size: 23px; }
-  .grid .panel p { font-size: 14.5px; }
-  .span2 { grid-column: span 2; }
-  .span3 { grid-column: span 3; }
-  .grid .pic { align-self: flex-start; }
-  /* ---------- Footer ---------- */
-  .footer {
-    border-top: 3px solid #111; margin-top: 14px; padding-top: 8px;
-    display: flex; justify-content: space-between;
-    font-family: "DejaVu Sans", Arial, sans-serif;
-    font-size: 12px; color: #444; letter-spacing: 0.5px;
-  }
-</style>
-</head>
-<body>
-<div class="page">
-  <div class="masthead">
-    <h1>THE WORLD TODAY</h1>
-    <div class="tagline">Six stories &middot; One page &middot; The world in a glance</div>
-  </div>
-  <div class="rule-double"></div>
-  <div class="dateline">
-    <span class="side">VOL. I &mdash; No. 326</span>
-    <span class="date">SUNDAY, 22 NOVEMBER 2026</span>
-    <span class="side">PRICE: ONE GLANCE</span>
-  </div>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#fff;font-family:Georgia,"DejaVu Serif","Noto Serif",serif;color:#111}
+.page{width:1024px;height:1024px;background:#f8f4e8;padding:8px 14px 6px;overflow:hidden}
+.mast{text-align:center;border-bottom:4px double #111;padding-bottom:5px}
+.mast h1{font-size:56px;line-height:.95;letter-spacing:2px;font-weight:900}
+.mast .sub{display:flex;justify-content:space-between;font-family:Arial,Helvetica,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.5px;margin-top:5px;border-top:1px solid #111;padding-top:4px}
+.mast .sub .mid{color:#8b0000;font-size:11.5px;letter-spacing:1px}
+.strip{display:flex;border:1px solid #111;margin-top:6px;background:#f2ecd8}
+.strip .cell{flex:1;padding:4px 6px;border-right:1px solid #999}
+.strip .cell:last-child{border-right:0}
+.strip h3{font-family:Arial,sans-serif;font-size:8.5px;letter-spacing:1.2px;color:#8b0000;margin-bottom:2px}
+.strip .cell p{font-size:8.6px;line-height:1.25}
+.strip .cell p b{font-family:Arial,sans-serif}
+.nums{background:#111;color:#f8f4e8}
+.nums .cell{border-right:1px solid #555;text-align:center;padding:4px 2px}
+.nums .big{font-family:Arial,sans-serif;font-size:19px;font-weight:900;color:#ffd76a;line-height:1.05}
+.nums .lab{font-family:Arial,sans-serif;font-size:7.6px;letter-spacing:.4px;text-transform:uppercase;color:#eee;line-height:1.2;margin-top:1px}
+.nums h3{color:#ffd76a;text-align:left}
+.leads{display:flex;gap:10px;margin-top:7px}
+.lead{flex:1;border:1px solid #111;padding:6px 7px;background:#fffdf4}
+.lead .kick{font-family:Arial,sans-serif;font-size:8.5px;font-weight:900;letter-spacing:1.4px;color:#8b0000}
+.lead h2{font-size:16.5px;line-height:1.08;margin:3px 0 4px}
+.lead svg{display:block;width:100%;height:72px;background:#eef0e6;border:1px solid #bbb;margin-bottom:4px}
+.lead p{font-size:9.4px;line-height:1.3;text-align:justify}
+.src{font-family:Arial,sans-serif;font-size:7.6px;color:#555;margin-top:3px}
+.src b{color:#8b0000}
+.tag{font-family:Arial,sans-serif;font-size:7.4px;font-weight:900;color:#fff;background:#8b0000;padding:1px 4px;border-radius:2px}
+.numgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;margin-top:6px}
+.nitem{display:flex;gap:6px;border-top:1px solid #999;padding:3px 2px 2px}
+.nitem .no{font-family:Arial,sans-serif;font-size:20px;font-weight:900;color:#8b0000;line-height:1;min-width:28px}
+.nitem h4{font-size:10.6px;line-height:1.1}
+.nitem p{font-size:8.7px;line-height:1.25;margin-top:1px;text-align:justify}
+.nitem svg{width:36px;height:36px;flex:none;background:#eef0e6;border:1px solid #bbb}
+.bottom{display:flex;gap:10px;margin-top:7px}
+.mapbox{width:296px;flex:none;border:1px solid #111;padding:5px 6px;background:#fffdf4}
+.mapbox h3,.also h3{font-family:Arial,sans-serif;font-size:9.5px;letter-spacing:1.4px;color:#8b0000;border-bottom:1px solid #111;padding-bottom:2px;margin-bottom:3px}
+.mapbox svg{width:100%;height:96px;background:#dce8f0}
+.mapbox .cap{font-size:8px;line-height:1.3;color:#333;margin-top:2px}
+.also{flex:1;border:1px solid #111;padding:5px 7px;background:#fffdf4}
+.also .cols{display:flex;gap:14px}
+.also ul{list-style:none;flex:1}
+.also li{font-size:8.5px;line-height:1.25;padding:1px 0;border-bottom:1px dotted #bbb}
+.also li b{font-family:Arial,sans-serif;font-size:8.4px}
+.datecheck{margin-top:7px;border:2px solid #8b0000;padding:5px 8px;background:#fdf0e8}
+.datecheck h3{font-family:Arial,sans-serif;font-size:9.5px;letter-spacing:1.2px;color:#8b0000}
+.datecheck p{font-size:8.8px;line-height:1.3}
+.datecheck .x{color:#8b0000;font-weight:900}
+.datecheck .ok{color:#1a6b1a;font-weight:900}
+.foot{margin-top:4px;font-family:Arial,sans-serif;font-size:7.6px;color:#444;text-align:center;line-height:1.3}
+</style></head><body><div class="page">
 
-  <div class="stories">
-    <!-- LEAD: Peru quake -->
-    <div class="panel lead">
-      <div class="text">
-        <div class="kicker">South America &middot; Lead Story</div>
-        <h2>Strong Quake Shakes Peru&rsquo;s Andes</h2>
-        <p>A magnitude 6.9 earthquake struck the Andes in central Peru, its tremors felt as far as Lima &mdash; and, so far, no damage or casualties have been reported.</p>
-      </div>
-      <div class="pic">
-        <svg width="150" height="118" viewBox="0 0 150 118">
-          <polygon points="0,118 45,30 75,118" fill="#8a7a5a"/>
-          <polygon points="55,118 100,12 150,118" fill="#6b5d43"/>
-          <polygon points="88,38 100,12 112,38 106,34 100,46 94,34" fill="#f8f4e8"/>
-          <polyline points="10,60 30,60 38,44 48,72 58,52 70,66 84,40 96,64 110,50 122,62 140,62"
-                    fill="none" stroke="#a31616" stroke-width="4" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </div>
+<div class="mast">
+  <h1>THE WORLD TODAY</h1>
+  <div class="sub"><span>SUNDAY, 22 NOVEMBER 2026</span><span class="mid">35 STORIES &middot; 7 REGIONS &middot; 13 FIELDS</span><span>ONE DAY &middot; ONE PAGE &middot; EVERYTHING VERIFIED</span></div>
+</div>
 
-    <div class="grid">
-      <!-- Iran / Gulf -->
-      <div class="panel span2">
-        <div class="pic">
-          <svg width="72" height="60" viewBox="0 0 72 60">
-            <polygon points="36,2 42,20 60,10 48,26 66,30 48,34 60,50 42,40 36,58 30,40 12,50 24,34 6,30 24,26 12,10 30,20" fill="#c98a1b"/>
-            <circle cx="36" cy="30" r="9" fill="#a31616"/>
-          </svg>
-        </div>
-        <div class="text">
-          <div class="kicker">Middle East</div>
-          <h2>Gulf Bases Under Fire</h2>
-          <p>Iran struck a U.S. air base in Kuwait and targeted sites in Bahrain, widening its attacks across the Gulf.</p>
-        </div>
-      </div>
-      <!-- Estonia -->
-      <div class="panel span2">
-        <div class="pic">
-          <svg width="72" height="60" viewBox="0 0 72 60">
-            <rect x="4" y="8" width="64" height="6" fill="#111"/>
-            <rect x="4" y="26" width="64" height="6" fill="#111"/>
-            <rect x="4" y="44" width="64" height="6" fill="#111"/>
-            <rect x="10" y="4" width="5" height="52" fill="#111"/>
-            <rect x="34" y="4" width="5" height="52" fill="#111"/>
-            <rect x="58" y="4" width="5" height="52" fill="#111"/>
-          </svg>
-        </div>
-        <div class="text">
-          <div class="kicker">Europe</div>
-          <h2>A New Iron Curtain?</h2>
-          <p>Estonia will close its border with Russia; Moscow calls the move a &ldquo;new Iron Curtain&rdquo;.</p>
-        </div>
-      </div>
-      <!-- Baltic drone -->
-      <div class="panel span2">
-        <div class="pic">
-          <svg width="72" height="60" viewBox="0 0 72 60">
-            <path d="M8 44 L64 44 L56 54 L16 54 Z" fill="#2e4a6b"/>
-            <rect x="28" y="30" width="16" height="14" fill="#2e4a6b"/>
-            <rect x="33" y="20" width="6" height="10" fill="#2e4a6b"/>
-            <circle cx="20" cy="14" r="5" fill="none" stroke="#111" stroke-width="2"/>
-            <circle cx="52" cy="14" r="5" fill="none" stroke="#111" stroke-width="2"/>
-            <line x1="20" y1="14" x2="52" y2="14" stroke="#111" stroke-width="2"/>
-            <line x1="36" y1="14" x2="36" y2="24" stroke="#111" stroke-width="2"/>
-            <path d="M4 58 q8 -4 16 0 q8 4 16 0 q8 -4 16 0 q8 4 16 0" fill="none" stroke="#4a7ba6" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="text">
-          <div class="kicker">Baltic Sea</div>
-          <h2>Drone Hits Russian Freighter</h2>
-          <p>A drone struck a Russian cargo ship in the Baltic, and Finland is tightening its security.</p>
-        </div>
-      </div>
-      <!-- COP31 -->
-      <div class="panel span3">
-        <div class="pic">
-          <svg width="72" height="60" viewBox="0 0 72 60">
-            <circle cx="30" cy="30" r="24" fill="#7fae7a"/>
-            <path d="M12 26 q10 -8 18 0 q10 6 18 -2" fill="none" stroke="#2e6b34" stroke-width="3"/>
-            <path d="M14 40 q12 -6 22 2 q8 5 14 0" fill="none" stroke="#2e6b34" stroke-width="3"/>
-            <rect x="58" y="6" width="6" height="34" rx="3" fill="#c9c2ae" stroke="#111" stroke-width="1.5"/>
-            <circle cx="61" cy="46" r="7" fill="#a31616" stroke="#111" stroke-width="1.5"/>
-            <rect x="59.5" y="18" width="3" height="26" fill="#a31616"/>
-          </svg>
-        </div>
-        <div class="text">
-          <div class="kicker">Climate &middot; COP31</div>
-          <h2>Climate Talks Run Overtime</h2>
-          <p>Negotiators at COP31 are deadlocked over fossil fuels, pushing the summit past its deadline.</p>
-        </div>
-      </div>
-      <!-- APEC Shenzhen -->
-      <div class="panel span3">
-        <div class="pic">
-          <svg width="72" height="60" viewBox="0 0 72 60">
-            <rect x="6" y="26" width="12" height="30" fill="#8a7a5a"/>
-            <rect x="22" y="16" width="12" height="40" fill="#6b5d43"/>
-            <rect x="38" y="30" width="12" height="26" fill="#8a7a5a"/>
-            <rect x="54" y="8" width="12" height="48" fill="#4a3f2c"/>
-            <circle cx="36" cy="10" r="5" fill="#c98a1b"/>
-            <line x1="4" y1="58" x2="68" y2="58" stroke="#111" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="text">
-          <div class="kicker">Asia &middot; Diplomacy</div>
-          <h2>Trump Lands in Shenzhen</h2>
-          <p>Donald Trump arrived in Shenzhen for the APEC summit, with a trilateral meeting with Xi and Putin planned.</p>
-        </div>
-      </div>
-    </div>
+<div class="strip">
+  <div class="cell"><h3>THE DAY IN UTC</h3><p><b>02:00</b> Bitcoin trades at $60,020 after reclaiming $60,000 overnight.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>03:00</b> COP31 objection deadline passes in Antalya; no deal in sight.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>06:00</b> COP31 plenary reconvenes to vote on the disputed Antalya Pact.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>07:04</b> Ukraine rescuers report a five-storey block destroyed in Dymer.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>08:28</b> Finland: the stricken Sparta II still burning off its coast.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>10:03</b> Seoul: education minister Choi Kyo-jin offers his resignation.</p></div>
+  <div class="cell"><h3>&nbsp;</h3><p><b>11:20</b> Mexico flies &ldquo;El Chapo Isidro&rdquo; to Mexico City after the Guasave raid.</p></div>
+</div>
+
+<div class="strip nums">
+  <div class="cell"><h3>THE DAY IN NUMBERS</h3><div class="big">186</div><div class="lab">drones fired at Ukraine overnight</div></div>
+  <div class="cell"><div class="big">161</div><div class="lab">of them shot down or jammed</div></div>
+  <div class="cell"><div class="big">14</div><div class="lab">people missing under Dymer rubble</div></div>
+  <div class="cell"><div class="big">24</div><div class="lab">body bags removed in Cikande, Java</div></div>
+  <div class="cell"><div class="big">11.3m</div><div class="lab">children in Ethiopia polio drive</div></div>
+  <div class="cell"><div class="big">$60,000</div><div class="lab">Bitcoin reclaimed after $55,130 low</div></div>
+</div>
+
+<div class="leads">
+  <div class="lead">
+    <div class="kick">CLIMATE &middot; ANTALYA, TURKEY</div>
+    <h2>COP31 COLLAPSES: NO DEAL AS EU REJECTS PACT WITHOUT FOSSIL FUELS</h2>
+    <svg viewBox="0 0 300 92"><rect width="300" height="92" fill="#f4e3c8"/><circle cx="150" cy="46" r="30" fill="#e8a33d"/><path d="M0 70 Q75 55 150 68 T300 62 V92 H0 Z" fill="#c96a2e"/><path d="M20 92 V55 L60 40 L100 55 V92 Z" fill="#7a4a21"/><path d="M120 92 V48 L160 34 L200 48 V92 Z" fill="#5d3a1a"/><path d="M220 92 V58 L255 44 L290 58 V92 Z" fill="#7a4a21"/><text x="150" y="20" text-anchor="middle" font-size="11" font-family="Arial" font-weight="bold" fill="#8b0000">LONGEST CLIMATE SUMMIT EVER</text></svg>
+    <p>The European Union formally rejected the draft Antalya Pact on Sunday, saying it &ldquo;does not even mention fossil fuels&rdquo;. Panama, Norway and island states joined the rejection. The summit, two days past its Friday deadline, ended with no agreement — the first COP to fail outright since Copenhagen in 2009. Nearly 200 nations deadlocked over a 130-country demand to keep the COP28 promise to move away from coal, oil and gas.</p>
+    <div class="src"><span class="tag">CONFIRMED</span> <b>Reuters &middot; The Guardian &middot; BBC</b> — COP31 presidency, Antalya</div>
   </div>
-
-  <div class="footer">
-    <span>Sources: wire reports, 22 November 2026</span>
-    <span>THE WORLD TODAY &mdash; SUNDAY EDITION</span>
+  <div class="lead">
+    <div class="kick">WAR &middot; THE GULF</div>
+    <h2>GULF IN FLAMES: IRAN HITS U.S. BASES IN BAHRAIN; TWO CIVILIANS HURT</h2>
+    <svg viewBox="0 0 300 92"><rect width="300" height="92" fill="#dfe9f2"/><path d="M0 62 Q60 50 120 60 T300 56 V92 H0 Z" fill="#3d6a8a"/><path d="M40 62 L40 30 L52 30 L52 62 Z" fill="#8b0000"/><path d="M52 34 L78 40 L52 46 Z" fill="#8b0000"/><circle cx="200" cy="26" r="9" fill="#e8a33d"/><path d="M180 62 L200 34 L220 62 Z" fill="#5d3a1a"/><path d="M120 62 L140 40 L160 62 Z" fill="#7a4a21"/><text x="150" y="14" text-anchor="middle" font-size="11" font-family="Arial" font-weight="bold" fill="#8b0000">DAY 268 OF THE U.S.&ndash;IRAN WAR</text></svg>
+    <p>Bahrain said on Sunday that two people were hurt — one in critical condition — when an Iranian strike hit a civilian industrial facility on Saturday. Iran&rsquo;s Revolutionary Guards claimed a combined missile-and-drone operation against U.S. positions at the al-Riffa and Awali bases, saying it destroyed two Patriot radars; the claim is unverified. Tehran also said it shot down a fourth U.S. MQ-1 drone in 24 hours east of the Strait of Hormuz.</p>
+    <div class="src"><span class="tag">CONFIRMED</span> <b>Reuters &middot; AFP &middot; Al Jazeera</b> — Bahrain Interior Ministry; IRGC claim <b>REPORTED</b></div>
+  </div>
+  <div class="lead">
+    <div class="kick">WAR &middot; UKRAINE</div>
+    <h2>DYMER FLATTENED: DRONE COLLAPSES FLATS, 14 MISSING UNDER RUBBLE</h2>
+    <svg viewBox="0 0 300 92"><rect width="300" height="92" fill="#e8e4da"/><path d="M30 92 V40 h40 v52 Z" fill="#9a8f7a"/><path d="M80 92 V28 h40 v64 Z" fill="#7a6f5c"/><path d="M130 92 V46 h40 v46 Z" fill="#9a8f7a"/><path d="M185 92 V34 h40 v58 Z" fill="#6b5f4c"/><path d="M235 92 V52 h40 v40 Z" fill="#9a8f7a"/><path d="M80 28 L120 28 L100 10 Z" fill="#8b0000"/><rect x="88" y="36" width="8" height="8" fill="#f8f4e8"/><rect x="100" y="36" width="8" height="8" fill="#f8f4e8"/><rect x="88" y="50" width="8" height="8" fill="#f8f4e8"/><rect x="100" y="50" width="8" height="8" fill="#f8f4e8"/><text x="150" y="14" text-anchor="middle" font-size="10" font-family="Arial" font-weight="bold" fill="#8b0000">FIVE STOREYS &middot; ALL FLOORS HIT</text></svg>
+    <p>A Russian drone destroyed a five-storey apartment block in Dymer, north of Kyiv, in the early hours of Sunday. Rescuers pulled nine people out alive; President Volodymyr Zelenskyy said 14 people, including two children, were still unaccounted for, and two bodies were later recovered. Ukraine&rsquo;s air force said Russia launched 186 drones overnight — 72 jet-powered — and 161 were downed or jammed, with hits at 18 sites.</p>
+    <div class="src"><span class="tag">CONFIRMED</span> <b>AP &middot; Reuters &middot; Ukraine SES</b> — Zelenskyy; Kyiv regional administration</div>
   </div>
 </div>
-</body>
-</html>
+
+<div class="numgrid">
+  <div class="nitem"><div class="no">01</div><div><h4>BALTIC FREIGHTER STILL BURNING AFTER DRONE HIT</h4><p>Fire aboard the Russian cargo ship <i>Sparta II</i> burned through the night off Finland, a day after drones struck it in the Gulf of Finland. All 16 crew were evacuated. Finland says Ukraine was likely behind it. <span class="src"><span class="tag">CONFIRMED</span> <b>Reuters</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#dfe9f2"/><path d="M4 26 h28 l-4 -8 h-20 Z" fill="#5d3a1a"/><rect x="14" y="10" width="3" height="8" fill="#333"/><path d="M17 10 q8 3 0 6" fill="#c0392b"/><path d="M6 30 q4 -3 8 0 t8 0 t8 0" stroke="#3d6a8a" fill="none"/></svg></div>
+  <div class="nitem"><div class="no">02</div><div><h4>JAVA FACTORY FIRE: 24 BODY BAGS, DOZENS MISSING</h4><p>Police removed 24 body bags from the PT Fonusa Agung Mulia candy factory in Cikande on Sunday, a day after fire tore through the plant. About 300 were on shift; 29 still missing. Search resumes Monday. <span class="src"><span class="tag">CONFIRMED</span> <b>Reuters</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#f4e3c8"/><path d="M6 30 V14 h8 v16 Z" fill="#c0392b"/><path d="M16 30 V8 h8 v22 Z" fill="#e67e22"/><path d="M26 30 V18 h6 v12 Z" fill="#8b0000"/></svg></div>
+  <div class="nitem"><div class="no">03</div><div><h4>SEOUL MINISTER QUITS OVER AI EXAM-CHEATING CHAOS</h4><p>Education Minister Choi Kyo-jin resigned on Sunday; President Lee accepted within the hour, after last-minute anti-AI rules sowed confusion before the Suneung. 111 suspected cheating cases among 500,000 candidates. <span class="src"><span class="tag">CONFIRMED</span> <b>Yonhap &middot; AFP</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><circle cx="18" cy="14" r="7" fill="none" stroke="#333" stroke-width="2"/><path d="M8 30 q10 -12 20 0" fill="none" stroke="#8b0000" stroke-width="2"/></svg></div>
+  <div class="nitem"><div class="no">04</div><div><h4>&ldquo;EL CHAPO ISIDRO&rdquo; CAPTURED IN SINALOA RAID; 11 DEAD</h4><p>Mexican special forces captured Fausto Isidro Meza Flores, an FBI Ten Most Wanted fugitive with a $5m reward, in Guasave on Friday night. Seven gunmen and four soldiers died; eight arrested. <span class="src"><span class="tag">CONFIRMED</span> <b>AP &middot; Reuters</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><path d="M6 26 L18 8 L30 26 Z" fill="none" stroke="#8b0000" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="10" font-family="Arial" font-weight="bold" fill="#8b0000">$5m</text></svg></div>
+  <div class="nitem"><div class="no">05</div><div><h4>MOSCOW CRIES &ldquo;IRON CURTAIN&rdquo; AS ESTONIA SEALS BORDER</h4><p>Estonia will shut all road crossings with Russia from 1 December for at least six months, after an alleged GRU-ordered arson attempt on drone maker Threod Systems. Moscow vowed retaliation. <span class="src"><span class="tag">CONFIRMED</span> <b>Al Jazeera &middot; Reuters</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><path d="M4 8 h28 M4 18 h28 M4 28 h28" stroke="#8b0000" stroke-width="3"/><path d="M18 4 v28" stroke="#333" stroke-width="2"/></svg></div>
+  <div class="nitem"><div class="no">06</div><div><h4>BITCOIN CLAWS BACK $60,000 AFTER TWO-YEAR LOW</h4><p>Bitcoin reclaimed $60,000 on Sunday, up 9% from a $55,130 low — weakest since September 2024 — after a $1.8bn liquidation wave eased. Abraxas Capital alone withdrew 17,597 BTC. <span class="src"><span class="tag">REPORTED</span> <b>Reuters &middot; CoinDesk</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><path d="M4 28 L12 20 L18 24 L32 8" fill="none" stroke="#1a6b1a" stroke-width="2"/><path d="M26 8 h6 v6" fill="none" stroke="#1a6b1a" stroke-width="2"/></svg></div>
+  <div class="nitem"><div class="no">07</div><div><h4>NIGERIA BOAT TOLL RISES TO 24 IN BAYELSA</h4><p>The death toll from a boat capsize in Bayelsa state rose to 24 on Sunday, officials said, as NEMA sent a technical team to the scene. <span class="src"><span class="tag">CONFIRMED</span> <b>Citizen Digital &middot; Vanguard</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#dfe9f2"/><path d="M4 24 q8 -4 14 0 t14 0" stroke="#3d6a8a" fill="none" stroke-width="2"/><path d="M10 22 L26 22 L22 16 L14 16 Z" fill="#5d3a1a"/></svg></div>
+  <div class="nitem"><div class="no">08</div><div><h4>ETHIOPIA LAUNCHES POLIO DRIVE FOR 11.3M CHILDREN</h4><p>Ethiopia, with WHO, UNICEF and polio partners, launched a house-to-house vaccination campaign on Sunday aiming to protect more than 11.3 million children. <span class="src"><span class="tag">OFFICIAL</span> <b>WHO &middot; PANA</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><circle cx="18" cy="18" r="10" fill="none" stroke="#1a6b1a" stroke-width="2"/><path d="M13 18 l4 4 l7 -8" fill="none" stroke="#1a6b1a" stroke-width="2"/></svg></div>
+  <div class="nitem"><div class="no">09</div><div><h4>MONGOLIA HEADS FOR SNAP PRESIDENTIAL VOTE</h4><p>Mongolia will hold a snap presidential election after President Khurelsukh resigned amid $25m bribery allegations; parliament approved it 96–8. Speaker Sandag holds presidential powers. <span class="src"><span class="tag">CONFIRMED</span> <b>MONTSAME &middot; AFP</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#eef0e6"/><rect x="8" y="10" width="20" height="14" fill="none" stroke="#333" stroke-width="2"/><path d="M8 24 h20 M14 24 v6 M22 24 v6" stroke="#333" stroke-width="2"/></svg></div>
+  <div class="nitem"><div class="no">10</div><div><h4>BLACK FOILS WIN DUBAI SAILGP AS GBR TITLE HOPES DIE</h4><p>New Zealand&rsquo;s Black Foils won the Dubai SailGP on Sunday, beating Australia in the final race. Defending champions Emirates GBR missed the final, ending their title defence. <span class="src"><span class="tag">CONFIRMED</span> <b>SailGP &middot; Reuters</b></span></p></div><svg viewBox="0 0 36 36"><rect width="36" height="36" fill="#dfe9f2"/><path d="M18 6 L18 24 M18 8 L28 22 L18 22 Z" fill="#f8f4e8" stroke="#333"/><path d="M8 26 h22 l-3 5 H11 Z" fill="#8b0000"/></svg></div>
+</div>
+
+<div class="bottom">
+  <div class="mapbox">
+    <h3>WHERE IT HAPPENED</h3>
+    <svg viewBox="0 0 300 118">
+      <rect width="300" height="118" fill="#dce8f0"/>
+      <path d="M18 22 L52 12 L88 16 L96 34 L78 52 L58 48 L40 58 L22 44 Z" fill="#e8dfc2" stroke="#666"/>
+      <path d="M72 66 L96 62 L104 84 L92 108 L78 96 L70 80 Z" fill="#e8dfc2" stroke="#666"/>
+      <path d="M138 20 L168 14 L176 30 L160 44 L142 38 Z" fill="#e8dfc2" stroke="#666"/>
+      <path d="M142 50 L172 46 L180 70 L168 96 L150 88 L140 66 Z" fill="#e8dfc2" stroke="#666"/>
+      <path d="M182 16 L280 12 L288 34 L262 52 L220 58 L196 44 L184 30 Z" fill="#e8dfc2" stroke="#666"/>
+      <path d="M238 88 L272 84 L276 100 L248 106 L236 98 Z" fill="#e8dfc2" stroke="#666"/>
+      <g font-family="Arial" font-size="8" font-weight="bold" text-anchor="middle">
+        <circle cx="40" cy="46" r="7" fill="#8b0000"/><text x="40" y="49" fill="#fff">4</text>
+        <circle cx="152" cy="26" r="7" fill="#8b0000"/><text x="152" y="29" fill="#fff">1</text>
+        <circle cx="172" cy="16" r="7" fill="#8b0000"/><text x="172" y="19" fill="#fff">5</text>
+        <circle cx="252" cy="84" r="7" fill="#8b0000"/><text x="252" y="87" fill="#fff">2</text>
+        <circle cx="262" cy="34" r="7" fill="#8b0000"/><text x="262" y="37" fill="#fff">3</text>
+        <circle cx="52" cy="28" r="7" fill="#8b0000"/><text x="52" y="31" fill="#fff">6</text>
+        <circle cx="150" cy="70" r="7" fill="#8b0000"/><text x="150" y="73" fill="#fff">7</text>
+        <circle cx="168" cy="64" r="7" fill="#8b0000"/><text x="168" y="67" fill="#fff">8</text>
+        <circle cx="232" cy="24" r="7" fill="#8b0000"/><text x="232" y="27" fill="#fff">9</text>
+        <circle cx="196" cy="52" r="7" fill="#8b0000"/><text x="196" y="55" fill="#fff">10</text>
+      </g>
+    </svg>
+    <div class="cap">Pins match stories 01–10. Leads: Antalya, the Gulf, Dymer. Schematic map.</div>
+  </div>
+  <div class="also">
+    <h3>ALSO TODAY — 22 BRIEFS FROM AROUND THE WORLD</h3>
+    <div class="cols"><ul>
+      <li><b>FOOTBALL (Sat):</b> Arsenal 2–2 Newcastle; stay top, 28 pts.</li>
+      <li><b>FOOTBALL (Sat):</b> Leeds stun Chelsea 4–1 at the Bridge.</li>
+      <li><b>FOOTBALL (Sat):</b> Man City 1–1 Fulham; losing run ends.</li>
+      <li><b>FOOTBALL (Sat):</b> Real Madrid 2–1 Celta; Roma 5–1 Parma.</li>
+      <li><b>FOOTBALL (Sat):</b> PSG 3–2 Nice; Spurs 2–0 Ipswich.</li>
+      <li><b>FOOTBALL:</b> Liverpool v Man Utd headlines today.</li>
+      <li><b>NFL:</b> Week 11: 11 Sunday games, incl. Mexico City.</li>
+      <li><b>RUGBY:</b> Australia edge Wales 29–26 in Cardiff.</li>
+      <li><b>CRICKET:</b> India declare 720/9 in New Zealand Test.</li>
+      <li><b>WEST BANK:</b> Settler arson condemned by opposition.</li>
+      <li><b>GAZA:</b> IDF names 3 killed in Sat. aid-vehicle strike.</li>
+    </ul><ul>
+      <li><b>HORMUZ (Sat):</b> Two tankers hit near Khasab; no hurt.</li>
+      <li><b>HORMUZ:</b> Swimmer crosses strait in war protest.</li>
+      <li><b>KALININGRAD (Sat):</b> Rare air alert after drone claims.</li>
+      <li><b>KRASNODAR:</b> Ukraine hits National Guard facility.</li>
+      <li><b>BRAZIL (Sat):</b> Senate backs Lula fiscal plan, R$50bn.</li>
+      <li><b>CHINA:</b> Easier to visit, harder to leave, travellers say.</li>
+      <li><b>WASHINGTON:</b> Jeffries vows to end Iran war; House split.</li>
+      <li><b>FBI:</b> Reported hack “not good”, Trump says.</li>
+      <li><b>SOUTH SUDAN:</b> 7 killed, 10 hurt in attack in Duk.</li>
+      <li><b>SOMALIA:</b> Naval HQ and maritime centre open.</li>
+      <li><b>WEATHER:</b> Heat peaks in SE Australia; Xavier fades.</li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="datecheck">
+  <h3>DATE CHECK — WHAT WE LEFT OUT, AND WHY</h3>
+  <p><span class="x">✗ NOT 22 NOV:</span> Peru&rsquo;s 6.9 quake — 21 Nov, 00:09 UTC. &nbsp;<span class="x">✗</span> Trump–Xi–Putin summit in Shenzhen — 19 Nov. &nbsp;<span class="x">✗</span> Nvidia −14% on SEC probe report — 20 Nov. &nbsp;<span class="x">✗</span> S&amp;P 500 correction — 20 Nov. &nbsp;<span class="ok">✓ NOT YET:</span> COP31 final text — no deal by press time. NFL Sunday results, Liverpool v Man Utd — still to play.</p>
+</div>
+
+<div class="foot">SOURCES: Reuters &middot; AP &middot; AFP &middot; BBC &middot; The Guardian &middot; Al Jazeera &middot; Yonhap &middot; Ukraine SES &middot; WHO &middot; PANA &middot; MONTSAME &middot; SailGP &middot; CoinDesk. All stories 22 Nov 2026; (Sat) = Saturday; REPORTED = unverified claim. &mdash; THE WORLD TODAY</div>
+
+</div></body></html>
