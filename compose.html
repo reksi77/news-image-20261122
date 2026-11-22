@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World Today — Sunday, 22 November 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #e8e2d2; }
+  .page {
+    width: 1024px; height: 1024px;
+    background: #f8f4e8;
+    color: #111;
+    font-family: "Noto Serif", "DejaVu Serif", Georgia, serif;
+    padding: 26px 30px 18px;
+    border: 4px solid #111;
+    display: flex; flex-direction: column;
+  }
+  /* ---------- Masthead ---------- */
+  .masthead { text-align: center; }
+  .masthead h1 {
+    font-size: 88px; font-weight: 900; letter-spacing: 2px;
+    line-height: 0.95; color: #111;
+  }
+  .masthead .tagline {
+    font-size: 15px; letter-spacing: 6px; text-transform: uppercase;
+    color: #444; margin-top: 6px;
+  }
+  .rule-double { border-top: 3px solid #111; border-bottom: 1px solid #111; height: 5px; margin: 12px 0 8px; }
+  .dateline {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 15px; padding-bottom: 8px; border-bottom: 3px solid #111;
+  }
+  .dateline .date { font-size: 26px; font-weight: 900; letter-spacing: 2px; }
+  .dateline .side { font-weight: 700; letter-spacing: 1px; color: #333; }
+  /* ---------- Stories ---------- */
+  .stories { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 14px; }
+  .panel {
+    border: 2px solid #111; background: #fffdf6;
+    padding: 12px 14px; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .panel .text { flex: 1; }
+  .kicker {
+    font-family: "DejaVu Sans", Arial, sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #a31616; margin-bottom: 5px;
+  }
+  .panel h2 { font-size: 27px; line-height: 1.08; font-weight: 900; margin-bottom: 6px; }
+  .panel p { font-size: 15.5px; line-height: 1.35; color: #222; }
+  .pic { flex: 0 0 auto; }
+  /* Lead story */
+  .lead { padding: 14px 18px; }
+  .lead h2 { font-size: 40px; }
+  .lead p { font-size: 18px; line-height: 1.4; max-width: 640px; }
+  /* Grid of five */
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; flex: 1; }
+  .grid .panel { flex-direction: column; gap: 8px; }
+  .grid .panel h2 { font-size: 23px; }
+  .grid .panel p { font-size: 14.5px; }
+  .span2 { grid-column: span 2; }
+  .span3 { grid-column: span 3; }
+  .grid .pic { align-self: flex-start; }
+  /* ---------- Footer ---------- */
+  .footer {
+    border-top: 3px solid #111; margin-top: 14px; padding-top: 8px;
+    display: flex; justify-content: space-between;
+    font-family: "DejaVu Sans", Arial, sans-serif;
+    font-size: 12px; color: #444; letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <h1>THE WORLD TODAY</h1>
+    <div class="tagline">Six stories &middot; One page &middot; The world in a glance</div>
+  </div>
+  <div class="rule-double"></div>
+  <div class="dateline">
+    <span class="side">VOL. I &mdash; No. 326</span>
+    <span class="date">SUNDAY, 22 NOVEMBER 2026</span>
+    <span class="side">PRICE: ONE GLANCE</span>
+  </div>
+
+  <div class="stories">
+    <!-- LEAD: Peru quake -->
+    <div class="panel lead">
+      <div class="text">
+        <div class="kicker">South America &middot; Lead Story</div>
+        <h2>Strong Quake Shakes Peru&rsquo;s Andes</h2>
+        <p>A magnitude 6.9 earthquake struck the Andes in central Peru, its tremors felt as far as Lima &mdash; and, so far, no damage or casualties have been reported.</p>
+      </div>
+      <div class="pic">
+        <svg width="150" height="118" viewBox="0 0 150 118">
+          <polygon points="0,118 45,30 75,118" fill="#8a7a5a"/>
+          <polygon points="55,118 100,12 150,118" fill="#6b5d43"/>
+          <polygon points="88,38 100,12 112,38 106,34 100,46 94,34" fill="#f8f4e8"/>
+          <polyline points="10,60 30,60 38,44 48,72 58,52 70,66 84,40 96,64 110,50 122,62 140,62"
+                    fill="none" stroke="#a31616" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Iran / Gulf -->
+      <div class="panel span2">
+        <div class="pic">
+          <svg width="72" height="60" viewBox="0 0 72 60">
+            <polygon points="36,2 42,20 60,10 48,26 66,30 48,34 60,50 42,40 36,58 30,40 12,50 24,34 6,30 24,26 12,10 30,20" fill="#c98a1b"/>
+            <circle cx="36" cy="30" r="9" fill="#a31616"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div class="kicker">Middle East</div>
+          <h2>Gulf Bases Under Fire</h2>
+          <p>Iran struck a U.S. air base in Kuwait and targeted sites in Bahrain, widening its attacks across the Gulf.</p>
+        </div>
+      </div>
+      <!-- Estonia -->
+      <div class="panel span2">
+        <div class="pic">
+          <svg width="72" height="60" viewBox="0 0 72 60">
+            <rect x="4" y="8" width="64" height="6" fill="#111"/>
+            <rect x="4" y="26" width="64" height="6" fill="#111"/>
+            <rect x="4" y="44" width="64" height="6" fill="#111"/>
+            <rect x="10" y="4" width="5" height="52" fill="#111"/>
+            <rect x="34" y="4" width="5" height="52" fill="#111"/>
+            <rect x="58" y="4" width="5" height="52" fill="#111"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div class="kicker">Europe</div>
+          <h2>A New Iron Curtain?</h2>
+          <p>Estonia will close its border with Russia; Moscow calls the move a &ldquo;new Iron Curtain&rdquo;.</p>
+        </div>
+      </div>
+      <!-- Baltic drone -->
+      <div class="panel span2">
+        <div class="pic">
+          <svg width="72" height="60" viewBox="0 0 72 60">
+            <path d="M8 44 L64 44 L56 54 L16 54 Z" fill="#2e4a6b"/>
+            <rect x="28" y="30" width="16" height="14" fill="#2e4a6b"/>
+            <rect x="33" y="20" width="6" height="10" fill="#2e4a6b"/>
+            <circle cx="20" cy="14" r="5" fill="none" stroke="#111" stroke-width="2"/>
+            <circle cx="52" cy="14" r="5" fill="none" stroke="#111" stroke-width="2"/>
+            <line x1="20" y1="14" x2="52" y2="14" stroke="#111" stroke-width="2"/>
+            <line x1="36" y1="14" x2="36" y2="24" stroke="#111" stroke-width="2"/>
+            <path d="M4 58 q8 -4 16 0 q8 4 16 0 q8 -4 16 0 q8 4 16 0" fill="none" stroke="#4a7ba6" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div class="kicker">Baltic Sea</div>
+          <h2>Drone Hits Russian Freighter</h2>
+          <p>A drone struck a Russian cargo ship in the Baltic, and Finland is tightening its security.</p>
+        </div>
+      </div>
+      <!-- COP31 -->
+      <div class="panel span3">
+        <div class="pic">
+          <svg width="72" height="60" viewBox="0 0 72 60">
+            <circle cx="30" cy="30" r="24" fill="#7fae7a"/>
+            <path d="M12 26 q10 -8 18 0 q10 6 18 -2" fill="none" stroke="#2e6b34" stroke-width="3"/>
+            <path d="M14 40 q12 -6 22 2 q8 5 14 0" fill="none" stroke="#2e6b34" stroke-width="3"/>
+            <rect x="58" y="6" width="6" height="34" rx="3" fill="#c9c2ae" stroke="#111" stroke-width="1.5"/>
+            <circle cx="61" cy="46" r="7" fill="#a31616" stroke="#111" stroke-width="1.5"/>
+            <rect x="59.5" y="18" width="3" height="26" fill="#a31616"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div class="kicker">Climate &middot; COP31</div>
+          <h2>Climate Talks Run Overtime</h2>
+          <p>Negotiators at COP31 are deadlocked over fossil fuels, pushing the summit past its deadline.</p>
+        </div>
+      </div>
+      <!-- APEC Shenzhen -->
+      <div class="panel span3">
+        <div class="pic">
+          <svg width="72" height="60" viewBox="0 0 72 60">
+            <rect x="6" y="26" width="12" height="30" fill="#8a7a5a"/>
+            <rect x="22" y="16" width="12" height="40" fill="#6b5d43"/>
+            <rect x="38" y="30" width="12" height="26" fill="#8a7a5a"/>
+            <rect x="54" y="8" width="12" height="48" fill="#4a3f2c"/>
+            <circle cx="36" cy="10" r="5" fill="#c98a1b"/>
+            <line x1="4" y1="58" x2="68" y2="58" stroke="#111" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div class="kicker">Asia &middot; Diplomacy</div>
+          <h2>Trump Lands in Shenzhen</h2>
+          <p>Donald Trump arrived in Shenzhen for the APEC summit, with a trilateral meeting with Xi and Putin planned.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Sources: wire reports, 22 November 2026</span>
+    <span>THE WORLD TODAY &mdash; SUNDAY EDITION</span>
+  </div>
+</div>
+</body>
+</html>
