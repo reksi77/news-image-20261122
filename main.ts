@@ -1,92 +1,104 @@
-// The World Today — Sunday, 22 November 2026
+// SPDX-License-Identifier: MIT
+// main.ts — news-image-20261122
 //
-// Entry program for the make.fun "news-image-20261122" bounty:
-// "Sum up 22 November's world news in one image".
+// Entry point for the make.fun "news-image" bounty.
+// The entry is a single pre-rendered 1024x1024 newspaper front page
+// (entry.png, 35 stories covering the full day of 22 Nov 2026).
+// This program copies entry.png into $MAKEFUN_OUTPUT_DIR/entry.png and
+// validates the copy: PNG signature, IHDR dimensions (1024x1024),
+// file size, and a SHA-256 equality check between source and copy.
 //
-// The program copies the pre-rendered front page (entry.png, 1024x1024)
-// from this repository into $MAKEFUN_OUTPUT_DIR/entry.png, then validates
-// the copy: PNG signature, dimensions, file size (<= 1 MiB) and SHA-256
-// checksum against the source file. Deterministic, stdlib only, no network.
-//
-// The front page itself (compose.html -> entry.png) was designed and
-// rendered in this repository: a newspaper front page with a big masthead,
-// the date SUNDAY, 22 NOVEMBER 2026, and six verified news stories of the
-// day, each with a hand-drawn SVG pictogram.
+// Node 22, stdlib only, no network, fully deterministic.
 
-import { copyFileSync, existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { copyFileSync, readFileSync, statSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { join, dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const MAX_BYTES = 1_048_576; // 1 MiB
 const EXPECTED_WIDTH = 1024;
 const EXPECTED_HEIGHT = 1024;
+const MAX_BYTES = 1048576; // 1 MiB
 
-function sha256Hex(path: string): string {
-  return createHash("sha256").update(readFileSync(path)).digest("hex");
+const PNG_SIGNATURE = Buffer.from([
+  0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+]);
+
+function sha256Hex(data: Buffer): string {
+  return createHash("sha256").update(data).digest("hex");
 }
 
-// Read the PNG dimensions (IHDR chunk) without any dependency.
-function pngDimensions(buf: Buffer): { width: number; height: number } {
-  const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
-  if (buf.length < 33 || !buf.subarray(0, 8).equals(PNG_SIGNATURE)) {
-    throw new Error("not a PNG file: bad signature");
+// Parse width/height out of the PNG IHDR chunk (bytes 16..23).
+function pngDimensions(data: Buffer): { width: number; height: number } {
+  if (data.length < 33) {
+    throw new Error(`PNG too short to hold an IHDR chunk (${data.length} bytes)`);
   }
-  if (buf.toString("ascii", 12, 16) !== "IHDR") {
-    throw new Error("not a PNG file: missing IHDR chunk");
+  if (!data.subarray(0, 8).equals(PNG_SIGNATURE)) {
+    throw new Error("invalid PNG signature");
   }
-  return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+  if (data.toString("ascii", 12, 16) !== "IHDR") {
+    throw new Error("first PNG chunk is not IHDR");
+  }
+  return {
+    width: data.readUInt32BE(16),
+    height: data.readUInt32BE(20),
+  };
+}
+
+function validatePng(data: Buffer, label: string): { width: number; height: number } {
+  const { width, height } = pngDimensions(data);
+  if (width !== EXPECTED_WIDTH || height !== EXPECTED_HEIGHT) {
+    throw new Error(
+      `${label}: expected ${EXPECTED_WIDTH}x${EXPECTED_HEIGHT}, got ${width}x${height}`,
+    );
+  }
+  if (data.length > MAX_BYTES) {
+    throw new Error(`${label}: size ${data.length} exceeds ${MAX_BYTES} bytes`);
+  }
+  return { width, height };
 }
 
 function main(): void {
-  const repoDir = dirname(fileURLToPath(import.meta.url));
   const outputDir = process.env.MAKEFUN_OUTPUT_DIR;
   if (!outputDir) {
     throw new Error("MAKEFUN_OUTPUT_DIR is not set");
   }
 
-  const source = join(repoDir, "entry.png");
-  if (!existsSync(source)) {
-    throw new Error(`entry.png not found in ${repoDir}`);
-  }
+  const repoDir = dirname(fileURLToPath(import.meta.url));
+  const sourcePath = join(repoDir, "entry.png");
+  const destPath = join(outputDir, "entry.png");
 
-  const sourceBytes = readFileSync(source);
-  const { width, height } = pngDimensions(sourceBytes);
-  if (width !== EXPECTED_WIDTH || height !== EXPECTED_HEIGHT) {
-    throw new Error(`unexpected dimensions ${width}x${height}, expected 1024x1024`);
+  const source = readFileSync(sourcePath);
+  const sourceStat = statSync(sourcePath);
+  if (sourceStat.size !== source.length) {
+    throw new Error("source size changed while reading");
   }
-  if (sourceBytes.length > MAX_BYTES) {
-    throw new Error(`entry.png is ${sourceBytes.length} bytes, over the 1 MiB limit`);
-  }
-
-  const dest = join(outputDir, "entry.png");
-  copyFileSync(source, dest);
-
-  // Validate the copy, not just the source.
-  const copiedBytes = readFileSync(dest);
-  const copiedDims = pngDimensions(copiedBytes);
-  if (copiedDims.width !== EXPECTED_WIDTH || copiedDims.height !== EXPECTED_HEIGHT) {
-    throw new Error("copied entry.png has wrong dimensions");
-  }
-  if (copiedBytes.length > MAX_BYTES) {
-    throw new Error("copied entry.png exceeds the 1 MiB limit");
-  }
+  const dims = validatePng(source, "source entry.png");
   const sourceHash = sha256Hex(source);
-  const copiedHash = sha256Hex(dest);
-  if (sourceHash !== copiedHash) {
-    throw new Error("SHA-256 mismatch after copy");
-  }
-  // Cross-check the on-disk size of the copy as well.
-  const copiedSize = statSync(dest).size;
-  if (copiedSize !== copiedBytes.length) {
-    throw new Error("copied entry.png size mismatch");
+
+  copyFileSync(sourcePath, destPath);
+
+  // Confirm the destination file on disk is exactly the size we copied.
+  const destStat = statSync(destPath);
+  if (destStat.size !== source.length) {
+    throw new Error(
+      `copied size ${destStat.size} differs from source size ${source.length}`,
+    );
   }
 
-  console.log(`entry.png -> ${dest}`);
-  console.log(`dimensions: ${width}x${height}`);
-  console.log(`size: ${copiedBytes.length} bytes`);
-  console.log(`sha256 (source): ${sourceHash}`);
-  console.log(`sha256 (output): ${copiedHash}`);
+  const copied = readFileSync(destPath);
+  const copiedDims = validatePng(copied, "copied entry.png");
+  if (copiedDims.width !== dims.width || copiedDims.height !== dims.height) {
+    throw new Error("copied dimensions differ from source");
+  }
+  const copiedHash = sha256Hex(copied);
+  if (copiedHash !== sourceHash) {
+    throw new Error("SHA-256 mismatch between source and copy");
+  }
+
+  console.log(`output: ${destPath}`);
+  console.log(`dimensions: ${dims.width}x${dims.height}`);
+  console.log(`bytes: ${copied.length}`);
+  console.log(`sha256: ${copiedHash}`);
   console.log("OK");
 }
 
